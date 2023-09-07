@@ -2,21 +2,15 @@
 
 /**
  * main - program starting point
- * Return: 0 means success 
+ * Return: 0 means success
  */
 
 int main(void)
 {
-	char cr;
-	int i;
-	long int li;
-	long long int lli;
-	float f;
-
-	puts("Size of a char: %zu byte(s)", sizeof(cr));
-	puts("Size of an int: %zu byte(s)", sizeof(i));
-	puts("Size of long int: %zu byte(s)", sizeof(li));
-	puts("Size of long long int: %zu byte(s)", sizeof(lli));
-	puts("Size of float: %zu byte(s)\n", sizeof(f));
+	printf("Size of a char: %lu byte(s)\n", sizeof(char));
+	printf("Size of an int: %lu byte(s)\n", sizeof(int));
+	printf("Size of long int: %lu byte(s)\n", sizeof(long int));
+	printf("Size of long long int: %lu byte(s)\n", sizeof(long long int));
+	printf("Size of float: %lu byte(s)\n", sizeof(float));
 	return (0);
 }
