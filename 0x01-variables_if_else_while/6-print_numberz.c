@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * main - Prints 0 to 9 using putchar
  *
