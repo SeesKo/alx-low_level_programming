@@ -5,7 +5,7 @@
 /**
  * main - Entry point.
  * Description: 'if a whole number is divided by 10,
- * the remainder is equavalent to the last digit of
+ * the remainder is equivalent to the last digit of
  * that whole number'.
  * Return: 0 means success in C.
  */
