@@ -3,11 +3,11 @@
 #include <time.h>
 
 /**
- * main - Entry point
- * Description: 'if a number is larger than 10,
- * the last digit of a number is equivalent to
- * the remainder if that number were divided by 10'
- * Return: Always 0 (Success)
+ * main - Entry point.
+ * Description: 'if a whole number is divided by 10,
+ * the remainder is equavalent to the last digit of
+ * that whole number'.
+ * Return: 0 means success in C.
  */
 
 int main(void)

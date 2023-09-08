@@ -5,13 +5,16 @@
  *
  * Return: 0 means success.
  */
+
 int main(void)
 {
 	int digit;
 
-	for (digit = 0; digit < 10; digit++)
+	while (digit < 10)
+	{
 		printf("%d", digit);
-
+		digit++;
+	}
 	printf("\n");
 
 	return (0);

@@ -12,7 +12,7 @@ int main(void)
 	char wrds;
 
 	for (digit = 0; digit <= 9; digit++)
-		putchar((digit % 10) + '0');
+		putchar(digit + '0');
 	for (wrds = 'a'; wrds <= 'f'; wrds++)
 		putchar(wrds);
 	putchar('\n');
