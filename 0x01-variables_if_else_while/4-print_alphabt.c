@@ -1,16 +1,20 @@
 #include <stdio.h>
 
 /**
- * main - Entry point.
+ * main - Alphabet list excluding e and q.
  *
- * Return: 0 means success.
+ * Return: Always 0.
  */
+
 int main(void)
 {
 	char abcd;
 
 	for (abcd = 'a'; abcd <= 'z'; abcd++)
-		putchar(abcd);
+	{
+		if (abcd != 'e' && abcd != 'q')
+			putchar(abcd);
+	}
 
 	putchar('\n');
 
