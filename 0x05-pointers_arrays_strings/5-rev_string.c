@@ -11,7 +11,7 @@ void rev_string(char *s)
 	int i;
 	int strLength = 0;
 
-	/* looping over characters to find length of string */
+	/* looping through characters to find length of string */
 	for (i = 0; s[i] != '\0'; i++)
 		strLength++;
 	/* looping to the halfway point to reverse the string from the halfway point*/
