@@ -10,7 +10,7 @@ void puts2(char *str)
 {
 	int i;
 
-	/* looping over characters in string */
+	/* looping through characters in string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		/* Printing only even numbers */
