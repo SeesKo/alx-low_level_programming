@@ -29,7 +29,7 @@ char *str_concat(char *s1, char *s2)
 		len2++;
 
 	/* Allocating memory for the concatenated string */
-	ptr = (char *)malloc(len1 + len2 + 1);
+	ptr = (char *)malloc((len1 + len2) + 1);
 
 	if (ptr == NULL)
 		return (NULL);
@@ -43,7 +43,7 @@ char *str_concat(char *s1, char *s2)
 	for (i = 0; i < len2; i++)
 		ptr[len1 + i] = s2[i];
 
-	/* Null-terminate the ptr string */
+	/* Add null-terminator to the ptr string */
 	ptr[len1 + len2] = '\0';
 
 	return (ptr);
