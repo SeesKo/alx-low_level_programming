@@ -35,7 +35,6 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	/* Copy s1 into ptr string */
-
 	for (i = 0; i < len1; i++)
 		ptr[i] = s1[i];
 
