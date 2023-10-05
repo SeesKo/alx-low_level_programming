@@ -16,11 +16,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb == 0)
 		return (NULL);
 
-	arr = malloc(size * sizeof(unsigned int));
+	arr = calloc(nmemb, sizeof(unsigned int));
 
 	if (arr == NULL)
 	{
 		arr = calloc(nmemb, sizeof(unsigned int));
+		if (arr == NULL)
+			return (NULL);
 
 		return (NULL);
 	}
