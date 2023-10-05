@@ -23,7 +23,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; s2[i] != '\0'; i++)
 		len2++;
 	/* Memory allocation for concatenated string */
-	str = malloc((len1 + len2) + 1);
+	str = malloc(sizeof(char) * (len1 + n) + 1);
 
 	if (str == NULL)
 		return (NULL);
