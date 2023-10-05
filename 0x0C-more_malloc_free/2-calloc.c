@@ -11,19 +11,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *arr;
 
-	if (size == 0)
-		return (NULL);
-	if (nmemb == 0)
+	if (size == 0 || nmemb == 0)
 		return (NULL);
 
-	arr = calloc(nmemb, sizeof(unsigned int));
+	arr = calloc(nmemb, size);
 
 	if (arr == NULL)
 	{
-		arr = calloc(nmemb, sizeof(unsigned int));
-		if (arr == NULL)
-			return (NULL);
-
 		return (NULL);
 	}
 
