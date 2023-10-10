@@ -18,10 +18,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_dog == NULL)
 		return (NULL);
 
-	/* Initializing details of the new dog */
-	new_dog->name = name;
+	/* Allocate memory and copy the name string */
+	new_dog->name = malloc(name_len + 1);
+	if (new_dog->name == NULL)
+	{
+		free(new_dog);
+		return (NULL);
+	}
+
+	/* Copy the age */
 	new_dog->age = age;
-	new_dog->owner = owner;
+
+	/* Allocate memory for the owner string and copy it */
+	new_dog->owner = malloc(owner_len + 1);
+	if (new_dog->owner == NULL)
+	{
+		free(new_dog);
+		return (NULL);
+	}
 
 	return (new_dog);
 }
