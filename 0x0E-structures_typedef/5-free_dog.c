@@ -9,8 +9,14 @@
 
 void free_dog(dog_t *d)
 {
-	free(d->name);
-	free(d->owner);
+	if (d != NULL)
+	{
+		/* Free memory for strings containing */
+		/* dog's name and owner */
+		free(d->name);
+		free(d->owner);
 
-	free(d);
+		/* Free memory for 'dog_t' struct */
+		free(d);
+	}
 }
