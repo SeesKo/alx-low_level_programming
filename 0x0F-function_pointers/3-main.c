@@ -11,8 +11,6 @@ int main(int argc, char *argv[])
 {
 	int a, b, result;
 	char *operator;
-	/* Function pointer 'calc_func' declared to be used to call the appropriate */
-	/* arithmetic operation function based on the operator provided */
 	int (*calc_func)(int, int);
 
 	/* Check the number of command line arguments */
@@ -27,8 +25,6 @@ int main(int argc, char *argv[])
 	operator = argv[2];
 	b = atoi(argv[3]);
 
-	/* Checking if the operator is a single character and whether */
-	/* it's one of the valid arithmetic operators */
 	if (strlen(operator) != 1 || (operator[0] != '+' && operator[0] != '-' &&
 		operator[0] != '*' && operator[0] != '/' && operator[0] != '%'))
 	{
@@ -46,12 +42,9 @@ int main(int argc, char *argv[])
 		return (99);
 	}
 
-	/* Performing the operation using the selected function */
 	result = calc_func(a, b);
 
-	/* Printing the result */
 	printf("%d\n", result);
 
-	/* Returning success code */
 	return (0);
 }
