@@ -1,10 +1,10 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers - Adds up integers entered as parameters.
+ * print_numbers - Prints numbers passed to the function.
  * @separator: String to be printed between numbers.
  * @n: Number of integers passed to the function.
- * Return: Sum of all parameters.
+ * Return: Void.
  */
 
 void print_numbers(const char *separator, const unsigned int n, ...)
@@ -20,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		{
 			printf("%d", va_arg(args, int));
 			/* If current integer being printed */
-			/* isn't last on the list */
+			/* is not last on the list */
 			if (i < (n - 1))
 				printf("%s", separator);
 		}
