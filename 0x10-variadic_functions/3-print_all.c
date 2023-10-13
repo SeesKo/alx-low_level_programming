@@ -8,11 +8,12 @@
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int i;
 	char *str;
 	va_list args;
 
 	va_start(args, format);
+	i = 0;
 
 	while (format[i] != '\0')
 	{
