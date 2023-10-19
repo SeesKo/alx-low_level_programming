@@ -10,18 +10,19 @@
 
 list_t *add_node(list_t **head, const char *str)
 {
+	int i, length = 0;
 	list_t *new_node;
 
 	if (str == NULL)
 		return (NULL);
 
 	new_node = malloc(sizeof(list_t));
-
 	if (new_node == NULL)
 		return (NULL);
 
-	/* Duplication of the string */
+	/* Duplicating string & storing in new node */
 	new_node->str = strdup(str);
+
 	if (new_node->str == NULL)
 	{
 		free(new_node);
@@ -29,7 +30,9 @@ list_t *add_node(list_t **head, const char *str)
 	}
 
 	/* Calculating length of duplicated string */
-	new_node->len = strlen(new_node->str);
+	for (i = 0; str[i] != '\0'; i++)
+		length++;
+	new_node->len = length;
 	/* Setting the 'next' pointer of the new */
 	/* node to the current head of the list */
 	new_node->next = *head;
