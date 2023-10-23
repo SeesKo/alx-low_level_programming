@@ -8,6 +8,9 @@
 
 void free_listint2(listint_t **head)
 {
+	/* Setting the head pointer to NULL */
+	*head = NULL;
+
 	/*Initializing a pointer to the head */
 	listint_t *current = *head;
 
@@ -22,7 +25,4 @@ void free_listint2(listint_t **head)
 		/* Then free the node itself */
 		free(temp);
 	}
-
-	/* Setting the head pointer to NULL */
-	*head = NULL;
 }
