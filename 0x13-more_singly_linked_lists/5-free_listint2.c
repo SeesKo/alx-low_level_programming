@@ -11,6 +11,9 @@ void free_listint2(listint_t **head)
 	/*Initializing a pointer to the head */
 	listint_t *current = *head;
 
+	if (head == NULL)
+		return;
+
 	/* Setting the head pointer to NULL */
 	*head = NULL;
 
