@@ -35,8 +35,12 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 
 	/* Update previous node's next pointer to skip the current node */
-	prev->next = current->next;
+	if (prev != NULL)
+		prev->next = current->next;
+	else /* Update head if first element is deleted */
+		*head = current->next;
 
 	free(current);
+
 	return (1);
 }
