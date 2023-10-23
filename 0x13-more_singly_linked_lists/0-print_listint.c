@@ -12,8 +12,7 @@ size_t print_listint(const listint_t *h)
 
 	while (h != NULL)
 	{
-		printf("%u\n", h->n);
-
+		printf("%d\n", h->n);
 		/* Updating pointer 'h' to point to next node */
 		h = h->next;
 		node_count++;
