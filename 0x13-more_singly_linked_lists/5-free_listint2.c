@@ -8,11 +8,13 @@
 
 void free_listint2(listint_t **head)
 {
-	/*Initializing a pointer to the head */
-	listint_t *current = *head;
+	listint_t *current;
 
 	if (head == NULL)
 		return;
+
+	/*Initializing a pointer to the head */
+	current = *head;
 
 	while (current != NULL)
 	{
