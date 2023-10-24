@@ -9,16 +9,19 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t node_count = 0;
+	listint_t *current, *temp;
 
 	/* If list is empty return 0 */
 	if (h == NULL || *h == NULL)
 		return (0);
 
-	while (*h)
+	current = *h; /* Start at head of the list */
+
+	while (current)
 	{
-		listint_t *current = *h;
-		*h = (*h)->next; /* Move head to the next node */
-		free(current);
+		temp = current;
+		current = current->next;
+		free(temp);
 		node_count++;
 	}
 
