@@ -29,7 +29,7 @@ listint_t *find_listint_loop(listint_t *head)
 			{
 				if (slowptr->next == NULL || fastptr->next == NULL)
 					return (NULL);
-			       	/* Move both pointers at the same speed */
+				/* Move both pointers at the same speed */
 				slowptr = slowptr->next;
 				fastptr = fastptr->next;
 			}
