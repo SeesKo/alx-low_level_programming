@@ -22,10 +22,14 @@ size_t free_listint_safe(listint_t **h)
 		next = current->next;
 		free(current);
 		node_count++;
+
+		if (current <= next)
+		{
+			*h = NULL; /* Setting head to NULL */
+			break;
+		}
 		current = next;
 	}
-
-	*h = NULL; /* Setting head to NULL */
 
 	return (node_count);
 }
