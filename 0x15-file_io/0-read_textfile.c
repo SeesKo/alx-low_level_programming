@@ -12,42 +12,41 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int descriptor;
-	ssize_t bytes_read, bytes_written;
-	char *data_buffer;
+	FILE *fptr;
+	char *content = malloc(letters);
+	ssize_t bytes_read;
+	ssize_t bytes_written;
 
-	if (filename == NULL)
-		return (0);
-
-	descriptor = open(filename, O_RDONLY);
-	if (descriptor == -1)
-		return (0);
-
-	data_buffer = malloc(sizeof(char) * letters);
-	if (data_buffer == NULL)
+	if (filename == NULL || content == NULL)
 	{
-		close(descriptor);
+		if (content != NULL)
+			free(content);
 		return (0);
 	}
 
-	bytes_read = read(descriptor, data_buffer, letters);
-	if (bytes_read == -1)
+	fptr = fopen(filename, "r");
+
+	if (fptr == NULL) /* If file can't be opened*/
 	{
-		free(data_buffer);
-		close(descriptor);
+		free(content);
 		return (0);
 	}
 
-	bytes_written = write(STDOUT_FILENO, data_buffer, bytes_read);
-	if (bytes_written == -1 || bytes_written != bytes_read)
+	bytes_read = fread(content, 1, letters, fptr);
+	fclose(fptr);
+
+	if (bytes_read <= 0) /* If read fails */
 	{
-		free(data_buffer);
-		close(descriptor);
+		free(content);
 		return (0);
 	}
 
-	free(data_buffer);
-	close(descriptor);
+	bytes_written = fwrite(content, 1, bytes_read, stdout);
+	free(content);
 
-	return (bytes_written);
+	/* If write fails or doesn't return expected amount */
+	if (bytes_written != bytes_read)
+		return (-1);
+
+	return (bytes_read);
 }
