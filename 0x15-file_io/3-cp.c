@@ -56,7 +56,7 @@ int copy_file(int source_fd, int destination_fd)
 		bytes_written = write(destination_fd, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to file\n");
+			dprintf(2, "Error: Can't write to %s\n", filename);
 			exit(99);
 		}
 	}
