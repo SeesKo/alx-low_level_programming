@@ -65,6 +65,22 @@ int copy_file(int source_fd, int destination_fd)
 }
 
 /**
+ * set_permissions - Sets the permissions of the file to "rw-rw-r--".
+ * @filename: The name of the file to set permissions for.
+ *
+ * Return: 0 on success.
+ * Exits with an error message and status code 100 on failure.
+ */
+int set_permissions(const char *filename)
+{
+	if (chmod(filename, 0664) == -1)
+	{
+		exit(100);
+	}
+	return (0);
+}
+
+/**
  * main - The main function of the program.
  * @ac: The number of command-line arguments.
  * @av: An array of command-line argument strings.
