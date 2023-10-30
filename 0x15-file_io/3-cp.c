@@ -35,6 +35,7 @@ int open_destination_file(const char *filename)
 		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
+
 	return (destination_fd);
 }
 
@@ -60,23 +61,6 @@ int copy_file(int source_fd, int destination_fd)
 		}
 	}
 
-	return (0);
-}
-
-/**
- * set_permissions - Sets the permissions of the file to "rw-rw-r--".
- * @filename: The name of the file to set permissions for.
- *
- * Return: 0 on success.
- * Exits with an error message and status code 100 on failure.
- */
-int set_permissions(const char *filename)
-{
-	if (chmod(filename, 0664) == -1)
-	{
-		dprintf(2, "Error: Can't change permissions of file %s\n", filename);
-		exit(100);
-	}
 	return (0);
 }
 
