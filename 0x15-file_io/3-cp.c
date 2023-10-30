@@ -56,7 +56,6 @@ int copy_file(int source_fd, int destination_fd)
 		bytes_written = write(destination_fd, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	}
@@ -93,6 +92,7 @@ int main(int ac, char **av)
 {
 	int source_fd;
 	int destination_fd;
+	int close_result;
 
 	if (ac != 3)
 	{
@@ -107,13 +107,15 @@ int main(int ac, char **av)
 
 	set_permissions(av[2]);
 
-	if (close(source_fd) == -1)
+	close_result = close(source_fd);
+	if (close_result == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", source_fd);
 		exit(100);
 	}
 
-	if (close(destination_fd) == -1)
+	close_result = close(destination_fd);
+	if (close_result == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", destination_fd);
 		exit(100);
