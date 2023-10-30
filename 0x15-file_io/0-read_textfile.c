@@ -33,16 +33,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	bytes_read = fread(content, 1, letters, fptr);
+	fclose(fptr);
+
 	if (bytes_read <= 0) /* If read fails */
 	{
 		free(content);
-		fclose(fptr);
 		return (0);
 	}
 
 	bytes_written = fwrite(content, 1, bytes_read, stdout);
 	free(content);
-	fclose(fptr);
 
 	/* If write fails or doesn't return expected amount */
 	if (bytes_written != bytes_read)
