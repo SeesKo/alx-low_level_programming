@@ -107,8 +107,17 @@ int main(int ac, char **av)
 
 	set_permissions(av[2]);
 
-	close(source_fd);
-	close(destination_fd);
+	if (close(source_fd) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", source_fd);
+		exit(100);
+	}
+
+	if (close(destination_fd) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", destination_fd);
+		exit(100);
+	}
 
 	return (0);
 }
