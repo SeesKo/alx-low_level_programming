@@ -46,6 +46,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	/* If write fails or doesn't return expected amount */
 	if (bytes_written != bytes_read)
+	{
+		free(content);
 		return (-1);
 
 	return (bytes_read);
