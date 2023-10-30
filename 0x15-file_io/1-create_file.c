@@ -35,7 +35,7 @@ int create_file(const char *filename, char *text_content)
 	fclose(fptr);
 
 	if (bytes_written != txtlen)
-		return (-1); /* Success */
+		return (-1); /* bytes_written doesn't match txtlen */
 
 	/* Set file permissions to -rw------- */
 	if (chmod(filename, S_IRUSR | S_IWUSR) == -1)
