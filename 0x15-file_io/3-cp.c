@@ -55,9 +55,7 @@ int copy_file(int source_fd, int destination_fd)
 	{
 		bytes_written = write(destination_fd, buffer, bytes_read);
 		if (bytes_written == -1)
-		{
 			exit(99);
-		}
 	}
 
 	return (0);
@@ -95,7 +93,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: %s file_from file_to\n", av[0]);
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
