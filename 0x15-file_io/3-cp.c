@@ -51,7 +51,7 @@ int copy_file(int source_fd, int destination_fd)
 	ssize_t bytes_read, bytes_written;
 	char buffer[BUFFER_SIZE];
 
-	while ((bytes_read = read(source_fd, buffer, BUFFER_SIZE) > 0))
+	while ((bytes_read = read(source_fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytes_written = write(destination_fd, buffer, bytes_read);
 		if (bytes_written == -1)
@@ -59,12 +59,6 @@ int copy_file(int source_fd, int destination_fd)
 			dprintf(2, "Error: Can't write to file\n");
 			exit(99);
 		}
-	}
-
-	if (bytes_read == -1)
-	{
-		dprintf(2, "Error: Can't read from file\n");
-		exit(98);
 	}
 
 	return (0);
