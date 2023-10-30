@@ -1,3 +1,6 @@
+#include <unistd.h>
+#include <sys/types.h>
+#include <fcntl.h>
 #include "main.h"
 
 /**
@@ -9,44 +12,44 @@
  * Return: Number of letters it can read or print,
  * 0 on failure or error.
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fptr;
-	char *content = malloc(letters);
-	ssize_t bytes_read;
-	ssize_t bytes_written;
+	int file_descriptor;
+	ssize_t bytes_read, bytes_written;
+	char *buffer;
 
-	if (filename == NULL || content == NULL)
+	if (filename == NULL)
+		return (0);
+
+	file_descriptor = open(filename, O_RDONLY);
+	if (file_descriptor == -1)
+		return (0);
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
 	{
-		if (content != NULL)
-			free(content);
+		close(file_descriptor);
 		return (0);
 	}
 
-	fptr = fopen(filename, "r");
-
-	if (fptr == NULL) /* If file can't be opened*/
+	bytes_read = read(file_descriptor, buffer, letters);
+	if (bytes_read == -1)
 	{
-		free(content);
+		free(buffer);
+		close(file_descriptor);
 		return (0);
 	}
 
-	bytes_read = fread(content, 1, letters, fptr);
-	fclose(fptr);
-
-	if (bytes_read <= 0) /* If read fails */
+	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+	if (bytes_written == -1 || bytes_written != bytes_read)
 	{
-		free(content);
+		free(buffer);
+		close(file_descriptor);
 		return (0);
 	}
 
-	bytes_written = fwrite(content, 1, bytes_read, stdout);
-	free(content);
+	free(buffer);
+	close(file_descriptor);
 
-	/* If write fails or doesn't return expected amount */
-	if (bytes_written != bytes_read)
-		return (0);
-
-	return (bytes_read);
+	return (bytes_written);
 }
