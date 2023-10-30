@@ -32,7 +32,7 @@ int open_destination_file(const char *filename)
 
 	if (destination_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to file %s\n", filename);
+		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (destination_fd);
