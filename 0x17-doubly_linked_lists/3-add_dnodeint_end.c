@@ -26,7 +26,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	current = *head;
 
 	/* Keep traversing if NULL is not encountered */
-	while(current != NULL && current->next != NULL)
+	while (current != NULL && current->next != NULL)
 		current = current->next;
 
 	/* If the list is empty, update the head to the new node */
@@ -40,5 +40,5 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		new_node->prev = current;
 	}
 
-	return(new_node);
+	return (new_node);
 }
