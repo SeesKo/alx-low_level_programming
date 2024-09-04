@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints all possible combinations of single digit numbers.
+ * main - Prints all possible combinations of two different digits.
  *
  * Return: 0 means success in C.
  */
@@ -14,13 +14,8 @@ int main(void)
 	{
 		for (j = i + 1; j < 10; j++)
 		{
-			putchar(i / 10 + '0');
-			putchar(i % 10 + '0');
-			putchar(',');
-			putchar(' ');
-			putchar(j / 10 + '0');
-			putchar(j % 10 + '0');
-
+			putchar('0' + i);
+			putchar('0' + j);
 			if (i != 8 || j != 9)
 			{
 				putchar(',');
