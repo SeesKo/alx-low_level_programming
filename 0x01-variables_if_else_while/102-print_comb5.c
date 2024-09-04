@@ -3,27 +3,22 @@
 /**
  * main - Prints all possible combinations of 2 two-digit numbers.
  *
- * Return: 0 means success in C.
+ * Return: 0 means success.
  */
 
 int main(void)
 {
-	int i, j, k;
-	char numbers[6];
+	int i, j;
 
-	for (i = 0; i < 99; i++)
+	for (i = 0; i < 100; i++)
 	{
 		for (j = i + 1; j < 100; j++)
 		{
-			numbers[0] = i / 10 + '0';
-			numbers[1] = i % 10 + '0';
-			numbers[2] = ' ';
-			numbers[3] = j / 10 + '0';
-			numbers[4] = j % 10 + '0';
-			numbers[5] = '\0';
-
-			for (k = 0; k < 5; k++)
-				putchar(numbers[k]);
+			putchar('0' + i / 10);
+			putchar('0' + i % 10);
+			putchar(' ');
+			putchar('0' + j / 10);
+			putchar('0' + j % 10);
 
 			if (i != 98 || j != 99)
 			{
@@ -32,7 +27,6 @@ int main(void)
 			}
 		}
 	}
-
 	putchar('\n');
 	return (0);
 }
