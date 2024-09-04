@@ -6,26 +6,36 @@
  */
 void print_number(int n)
 {
+	unsigned int num;
 	int divisor = 1;
 	int digit;
-	int temp = n;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		num = -n;
+	}
+	else
+	{
+		num = n;
 	}
 
-	while (temp / divisor >= 10)
+	while (num / divisor >= 10)
 	{
 		divisor *= 10;
 	}
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
 	while (divisor > 0)
 	{
-		digit = n / divisor;
+		digit = num / divisor;
 		_putchar(digit + '0');
-		n %= divisor;
+		num %= divisor;
 		divisor /= 10;
 	}
 }
