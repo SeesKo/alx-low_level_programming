@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints all possible combinations of two different digits.
+ * main - Prints all possible combinations of three different digits.
  *
  * Return: 0 means success in C.
  */
