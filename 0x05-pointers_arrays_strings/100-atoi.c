@@ -2,29 +2,33 @@
 
 /**
  * _atoi - Function to convert string to integer
- * @s : pointer value
- * Return: Always 0.
+ * @s: pointer to the input string
+ *
+ * Return: Converted integer value
  */
 int _atoi(char *s)
 {
-	int a, prefix;
-	unsigned int b;
+	int index = 0, sign = 1;
+	unsigned int result = 0;
 
-	a = b = 0;
-	prefix = 1;
+	while (s[index] == ' ' || s[index] == '\t' || s[index] == '\n')
+		index++;
 
-	for (a = 0; s[a] <= '0' && s[a] != '\0'; a++)
+	if (s[index] == '-')
 	{
-		if (s[a] == '-')
-			prefix = prefix * -1;
+		sign = -1;
+		index++;
 	}
-	if (s[a] == '\0')
-		return (b);
-
-	for (; s[a] != '\0' && s[a] != ';'; a++)
+	else if (s[index] == '+')
 	{
-	if (s[a] >= '0' && s[a] <= '9' && s[a] != '\0')
-		b = b * 10 + (s[a] - '0');
+		index++;
 	}
-	return (b * prefix);
+
+	while (s[index] >= '0' && s[index] <= '9')
+	{
+		result = result * 10 + (s[index] - '0');
+		index++;
+	}
+
+	return (result * sign);
 }
