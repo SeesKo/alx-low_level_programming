@@ -14,7 +14,7 @@ char *rot13(char *s)
 	{
 		if ((*p >= 'a' && *p <= 'z') || (*p >= 'A' && *p <= 'Z'))
 		{
-			char base = (*p >= 'a') ? 'a' : 'A';
+			char base = (*p >= 'a') * 'a' + (*p < 'a') * 'A';
 			*p = (char)(((*p - base + 13) % 26) + base);
 		}
 		p++;
